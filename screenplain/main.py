@@ -8,7 +8,7 @@ import sys
 import codecs
 from optparse import OptionParser
 
-from screenplain.parsers import fountain
+from screenplain.parsers import fountain, fdx
 
 output_formats = (
     'fdx', 'html', 'pdf'
@@ -92,10 +92,12 @@ def main(args):
         )
 
     if input_file:
-        input = codecs.open(input_file, 'r', 'utf-8-sig')
+        #TODO: handle exception on file readings.
+        input = codecs.open(input_file, 'rb')
     else:
         input = codecs.getreader('utf-8')(sys.stdin.buffer)
-    screenplay = fountain.parse(input)
+    #TODO: give the option for the input's format.
+    screenplay = fdx.parse(input)
 
     if format == 'pdf':
         output_encoding = None
