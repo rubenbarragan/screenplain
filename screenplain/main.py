@@ -92,11 +92,11 @@ def main(args):
         )
 
     if input_file:
-        #TODO: handle exception on file readings.
+        # TODO: handle exception on file readings.
         input = codecs.open(input_file, 'rb')
     else:
         input = codecs.getreader('utf-8')(sys.stdin.buffer)
-    #TODO: give the option for the input's format.
+    # TODO: give the option for the input's format.
     screenplay = fdx.parse(input)
 
     if format == 'pdf':
