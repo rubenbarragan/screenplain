@@ -85,7 +85,7 @@ def main(args):
     output_file = (len(args) > 1 and args[1] != '-') and args[1] or None
 
     input_format = options.input_format
-    if  input_format is None and input_file:
+    if input_format is None and input_file:
         if input_file.endswith('.fdx'):
             input_format = 'fdx'
         elif input_file.endswith('.fountain'):
@@ -95,7 +95,7 @@ def main(args):
                 parser,
                 'Could not detect input format from file name ' + input_format
             )
-    
+
     if input_format not in input_formats:
         invalid_format(
             parser, 'Unsupported input format: "%s".' % input_format
@@ -125,7 +125,7 @@ def main(args):
         input = codecs.open(input_file, 'r', 'utf-8-sig')
     else:
         input = codecs.getreader('utf-8')(sys.stdin.buffer)
-    
+
     if input_format == 'fdx':
         screenplay = fdx.parse(input)
     else:
