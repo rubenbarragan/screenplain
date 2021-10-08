@@ -141,7 +141,7 @@ def _is_blank(line):
 
 
 def parse(stream):
-    """Parses Fountain source. The parser's behavior is
+    """Parses Final Draft source. The parser's behavior is
     parsing every component known and ignore everything
     else, such as errors and unknown paragraph types.
 
@@ -149,17 +149,16 @@ def parse(stream):
 
     Returns a Screenplay object.
     """
-    content = stream.read()
-    return parse_lines(content)
+    return parse_xml(stream)
 
 
 # TODO: Parse title of the document.
-def parse_lines(source):
-    """Reads raw text input and generates paragraph objects.
+def parse_xml(source):
+    """Parses the xml file provided.
 
     Returns a Screenplay object.
     """
-    root = etree.XML(source)
+    root = etree.parse(source)
     return Screenplay('UNTITLED DOCUMENT', parse_body(root))
 
 

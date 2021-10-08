@@ -122,7 +122,7 @@ def main(args):
 
     if input_file:
         # TODO: handle exception on file readings.
-        input = codecs.open(input_file, 'rb')
+        input = codecs.open(input_file, 'r', 'utf-8-sig')
     else:
         input = codecs.getreader('utf-8')(sys.stdin.buffer)
     
