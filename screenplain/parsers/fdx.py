@@ -141,7 +141,7 @@ def _is_blank(line):
 
 
 def parse(stream):
-    """Parses Final Draft source. The parser's behavior is
+    r"""Parses Final Draft source. The parser's behavior is
     parsing every component known and ignore everything
     else, such as errors and unknown paragraph types.
 
